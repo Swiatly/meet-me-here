@@ -1,0 +1,131 @@
+.add-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    width: 40vw;
+    max-width: 250px;
+    cursor: pointer;
+    img {
+        width: 40px;
+    }
+
+    &__text {
+        margin-left: 10px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+
+.border-radius {
+    border-radius: 16px;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    border-radius: 16px;
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    max-width: 500px;
+    width: 80vw; 
+}
+
+.show {
+    display: block;
+}
+
+.close {
+    display: none;
+}
+
+.layout {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    width: clamp(250px, 45vw, 350px);
+    text-align: center;
+}
+
+.error {
+    color: rgb(134, 0, 0);
+}
+
+.form-element {
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    font-size: 16px;
+    padding: 10px 12px;
+    transition: box-shadow 0.3s, background-color 0.3s;
+
+    &:hover {
+        box-shadow: 0 4px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    &:focus {
+        outline: solid 2px rgba($color: white, $alpha: 0.75);
+    }
+}
+
+.close-button {
+    margin-top: 20px;
+    background-color: #348ac7;
+
+    &:hover {
+        background-color: #2f7eb6;
+    }
+}
+
+.add-post-button {
+    margin-top: 20px;
+    background-color: #5353b6;
+
+    &:hover {
+        background-color: #4949a0;
+    }
+}
+
+.buttons-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-input {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    input {
+        width: 100%;
+        background: linear-gradient(
+            to left,
+            rgba(255, 255, 255, 0.25),
+            rgba(255, 255, 255, 0.15)
+        );
+    }
+
+    label {
+        font-size: 16px;
+        font-weight: bold;
+    }
+}

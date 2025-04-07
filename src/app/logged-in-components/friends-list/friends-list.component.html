@@ -1,0 +1,34 @@
+<div class="friends-box white">
+    <div class="margin">Osoby obserwujące: <span class="number-box">{{ followers.length }}</span></div>
+    <div class="margin">Osoby obserwowane: <span class="number-box">{{ following.length }}</span></div>
+</div>
+<div *ngIf="followers.length > 0 || following.length > 0" (click)="openModal()" class="white details">Wyświetl szczegóły</div>
+
+
+<div #modal class="modal">
+    <div class="modal-content">
+        <div class="list-label">Osoby obserwujące:</div>
+        <ng-container *ngIf="followers.length === 0">
+            <div class="info-no-user">
+                Brak osób obserwujących
+            </div> 
+        </ng-container>
+        <ng-container *ngIf="followers.length > 0">
+            <ng-container *ngFor="let person of followers">
+                <div class="form-element margin">
+                    <div>{{ person.follower.firstName }}<span> {{ person.follower.lastName }}</span></div>
+                    <img [routerLink]="'/profile/'+ person.follower.id" class="refer-icon" src="../../../assets/refer.png"></div>
+            </ng-container>
+        </ng-container>
+        <div class="list-label">Osoby obserwowane:</div>
+        <ng-container *ngIf="following.length > 0">
+            <ng-container *ngFor="let person of following">
+                <div class="form-element margin">
+                    <div>{{ person.following.firstName }}<span> {{ person.following.lastName }}</span></div>
+                    <img [routerLink]="'/profile/'+ person.following.id" class="refer-icon" src="../../../assets/refer.png">
+                </div>
+            </ng-container>
+        </ng-container>
+        <button class="close-button form-element white pointer" (click)="closeModal()">Zamknij</button>
+    </div>
+</div>

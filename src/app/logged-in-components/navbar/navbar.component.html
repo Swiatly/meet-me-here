@@ -1,0 +1,66 @@
+<header class="top-nav glass-box">
+    <img
+        routerLink="/home"
+        class="top-nav__logo"
+        src="../../assets/logo-white.png"
+        alt="meet me here logo"
+    />
+    <div class="top-nav__search-box">
+        <input #searchBox
+            class="top-nav__search-box--input white"
+            type="text"
+            placeholder="Szukaj osób..."
+        />
+        <div (click)="handleSearch(searchBox.value)" class="top-nav__search-box--button">
+            <img src="../../assets/search.svg" alt="search-icon" />
+        </div>
+    </div>
+    <nav>
+        <div
+            [ngStyle]="{ 'margin-right': '10px' }"
+            class="top-nav__iconBox"
+            routerLink="/settings"
+        >
+            <img
+                class="top-nav__iconBox--settings nav-icon"
+                src="../../assets/settings.svg"
+                alt="settings icon"
+            />
+        </div>
+        <div routerLink="/profile"
+            class="top-nav__iconBox">
+            <img
+                class="top-nav__panel--user nav-icon"
+                src="../../assets/user.svg"
+                alt="your profile icon"/>
+        </div>
+        <div
+            class="top-nav__iconBox logout-box"
+            (click)="logout()"    
+        >
+            <img
+                class="top-nav__panel--user logout nav-icon"
+                src="../../../assets/logout.png"/>
+        </div>
+    </nav>
+</header>
+
+<div #modal class="modal">
+    <div class="modal-content">
+        <ng-container *ngIf="people.length === 0">
+            <div>Nikogo nie znaleziono.</div>
+        </ng-container>
+        <ng-container *ngIf="people && people.length > 0">
+            <div *ngFor="let person of people">
+                <div class="person-box">
+                    <div class="bold">{{ person.firstName }} {{ person.lastName }}</div>
+                    <div [routerLink]="'/profile/'+ person.id" class="icon-box">
+                        <img class="refer-icon" src="../../../assets/refer.png">
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <div></div>
+        <button class="close-button form-element white pointer" (click)="closeModal()">Zamknij</button>
+    </div>
+</div>

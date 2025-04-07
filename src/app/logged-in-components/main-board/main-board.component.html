@@ -1,0 +1,7 @@
+<p>main-board works!</p>
+
+<app-create-post></app-create-post>
+
+<ng-container *ngFor="let post of posts">
+    <post [title]="post.title" [description]="post.desc"></post>
+</ng-container>

@@ -1,0 +1,28 @@
+<div class="glass-box border-radius">
+    <div (click)="openModal()" class="add-button">
+        <img src="../../../assets/add.png">
+        <div class="add-button__text white">Dodaj post</div>
+    </div>
+</div>
+
+<div #modal class="modal">
+    <div class="modal-content">
+        <div class="post-input">
+            <label for="picture">Zdjęcie:</label>
+            <input #postPicture class="form-element" type="file" id="picture" 
+            accept="image/png, image/jpeg">
+        </div>
+        <div class="post-input">
+            <label for="title">Tytuł:</label>
+            <input #postTitle class="form-element" type="text" name="title" id="title" placeholder="Dodaj tytuł">
+        </div>
+        <div class="post-input">
+            <label for="descritpion">Opis:</label>
+            <input #postDesc class="form-element" type="text" name="descritpion" id="descritpion" placeholder="Dodaj opis">
+        </div>
+        <div class="buttons-box">
+            <button class="add-post-button form-element white" (click)="handlePost()">Dodaj</button>
+            <button class="close-button form-element white pointer" (click)="closeModal()">Zamknij</button>
+        </div>
+    </div>
+</div>

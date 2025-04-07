@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div class="settings-container glass-box">
+    <div class="settings-container__header white bold">Edycja konta</div>
+    <div class="settings-container__inputBox">
+        <label class="white bold" for="name">Imię:</label>
+        <input #firstname placeholder="Zmień imię" [value]="user.firstName" id="name" type="text">
+    </div>
+    <div class="settings-container__inputBox">
+        <label class="white bold" for="surname">Nazwisko:</label>
+        <input #lastname placeholder="Zmień nazwisko" [value]="user.lastName" id="surname" type="text">
+    </div>
+    <div class="settings-container__inputBox">
+        <label class="white bold" for="birthday-date">Data urodzin:</label>
+        <input #birthdayDate placeholder="Zmień datę urodzin" [value]="defualtDate" id="birthday-date" type="date">
+    </div>
+    <div class="settings-container__inputBox">
+        <label class="white bold" for="location">Miasto:</label>
+        <input #location placeholder="Zmień lokalizację" [value]="user.location" id="location" type="text">
+    </div>
+    <div class="settings-container__inputBox">
+        <label class="white bold" for="biogram">Biogram:</label>
+        <textarea #biogram placeholder="Napisz coś o sobie" [value]="user.biogram" id="biogram" cols="30" rows="8"></textarea>
+    </div>
+    <div [ngStyle]="{'margin-bottom': '20px'}" class="settings-container__inputBox">
+        <label class="white bold" for="avatar">Zdjęcie profilowe:</label>
+        <input #picture type="file" id="avatar" accept="image/png, image/jpeg">
+    </div>
+    <div class="white-line"></div>
+    <button (click)="changeData(firstname.value, lastname.value, birthdayDate.value, location.value, biogram.value, picture.value)" class="white">Zapisz zmiany</button>
+</div>

@@ -1,0 +1,97 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+    // overflow-y: scroll;
+    scroll-behavior: smooth;
+
+    .layout {
+        margin-right: 40px;
+    }
+
+    .profileInformation {
+        height: fit-content;
+        max-width: 320px;
+        border-radius: 8px;
+
+        &__photo {
+            img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border: 3px solid white;
+                border-radius: 8px 8px 0 0;
+            }
+        }
+
+        &__name {
+            text-align: center;
+            font-size: 20px;
+            letter-spacing: 1px;
+            padding: 10px;
+        }
+
+        &__data {
+            text-align: center;
+
+            &--heading {
+                margin: 10px 0;
+                font-size: 18px;
+                text-align: center;
+            }
+
+            &--biogram {
+                list-style: 2;
+            }
+        }
+    }
+
+    .profilePosts {
+        height: calc(100% - 150px);
+        border-radius: 8px;
+        overflow-y: scroll;
+
+        .break {
+            width: 100%;
+            height: 30px;
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar {
+            width: 0.6em;
+        }
+    
+        &::-webkit-scrollbar-track {
+            background: transparent;
+            margin-block: 0.3em;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 100vw;
+        }
+    
+        &::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.6);
+        }
+    }
+}
+
+.comment-section {
+    margin-top: 30px;
+}
+.follow-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.follow-button {
+    background-color: #348ac7;
+    color: white;
+    padding: 10px 12px;
+    border-radius: 16px;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}

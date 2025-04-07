@@ -1,0 +1,80 @@
+<div class="layout">
+    <div class="container glass-box">
+        <div class="wrapper">
+            <img
+                class="white-text-logo"
+                src="../../assets/logo-text-white.png"
+            />
+            <div class="container__input">
+                <label class="white" for="nickname">Nazwa użytkownika:</label>
+                <input (keyup)="vaildForm('username')"
+                    #username
+                    class="form-element white"
+                    id="nickname"
+                    type="text"
+                    placeholder=" "
+                />
+            </div>
+            <div class="error" *ngIf="!usernameValid">Pole jest puste!</div>
+            <div class="container__input">
+                <label class="white" for="password">Hasło:</label>
+                <input (keyup)="vaildForm('password')"
+                    #password
+                    class="form-element white"
+                    id="password"
+                    type="password"
+                    placeholder=" "
+                />
+            </div>
+            <div class="error" *ngIf="!passwordValid">Hasło musi zawierać więcej niż 6 znaków!</div>
+            <div class="container__input">
+                <label class="white" for="repeat-password"
+                    >Powtórz hasło:</label
+                >
+                <input (keyup)="vaildForm('repeatedPassword')"
+                    #passwordRepeated
+                    class="form-element white"
+                    id="repeat-password"
+                    type="password"
+                    placeholder=" "
+                />
+            </div>
+            <div class="error" *ngIf="!repeatedPasswordValid">Hasła różnią się od siebie!</div>
+            <div class="container__input">
+                <label class="white" for="firstname">Imię:</label>
+                <input (keyup)="vaildForm('firstname')"
+                    #firstname
+                    class="form-element white"
+                    id="firstname"
+                    type="text"
+                    placeholder=" "
+                />
+            </div>
+            <div class="error" *ngIf="!firstnameValid">Pole jest puste!</div>
+            <div class="container__input">
+                <label class="white" for="lastname">Nazwisko:</label>
+                <input (keyup)="vaildForm('lastname')"
+                    #lastname
+                    class="form-element white"
+                    id="lastname"
+                    type="text"
+                    placeholder=" "
+                />
+            </div>
+            <div class="error" *ngIf="!lastnameValid">Pole jest puste!</div>
+            <button
+                (click)="handleRegister()"
+                class="container__register-button form-element white pointer"
+            >
+                Zarejestruj się
+            </button>
+        </div>
+        <div class="white-line"></div>
+        <button
+            [routerLink]="'/login'"
+            class="container__login-button form-element white pointer"
+        >
+            Logowanie
+        </button>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="layout">
+    <div class="container glass-box">
+        <div class="wrapper">
+            <img
+                class="white-text-logo"
+                src="../../assets/logo-text-white.png"
+            />
+            <div class="container__input">
+                <label class="white" for="login-nickname"
+                    >Nazwa użytkownika:</label
+                >
+                <input (keyup)="validInput('username')"
+                    #loginUsername
+                    class="form-element white"
+                    id="login-nickname"
+                    type="text"
+                    placeholder=" "
+                />
+            </div>
+            <div *ngIf="!usernameValid" class="error">Pole nie może być puste</div>
+            <div class="container__input">
+                <label class="white" for="login-password">Hasło:</label>
+                <input (keyup)="validInput('password')"
+                    #loginPassword
+                    class="form-element white"
+                    id="login-password"
+                    type="password"
+                    placeholder=" "
+                />
+            </div>
+            <div *ngIf="!passwordValid" class="error">Pole nie może być puste</div>
+            <button
+                (click)="handleLogin()"
+                class="container__login-button form-element white pointer"
+            >
+                Zaloguj
+            </button>
+        </div>
+        <div class="white-line"></div>
+        <button
+            [routerLink]="'/register'"
+            class="container__register-button form-element white pointer"
+        >
+            Zarejestruj się
+        </button>
+    </div>
+</div>

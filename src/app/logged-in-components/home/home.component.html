@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="info">
+        <app-create-post></app-create-post>
+        <div class="margin"></div>
+        <app-today-date></app-today-date>
+        <div class="margin"></div>
+    </div>
+    <ng-container *ngIf="posts.length === 0">Brak postów do wyświetlenia.</ng-container>
+    <ng-container *ngIf="posts.length > 0">
+        <div class="profilePosts">
+            <ng-container *ngFor="let post of posts">
+                <post
+                [title]="post.title"
+                [author]="post.User.firstName + ' ' + post.User.lastName"
+                [date]="post.createdAt.split('T')[0]"
+                [description]="post.desc"
+                [photo]="'./../../../assets/' + post.photo"
+                [amountOfLikes]="post.likes"
+                [delete]="false"
+                [postID]="post.id">
+                </post>
+            </ng-container>
+        </div>
+    </ng-container>
+</div>
+
+

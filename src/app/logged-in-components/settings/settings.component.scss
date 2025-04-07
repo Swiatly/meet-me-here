@@ -1,0 +1,70 @@
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 25px;
+    border-radius: 16px;
+    width: fit-content;
+    margin: 0 auto;
+
+    &__header {
+        text-align: center;
+        font-size: 22px;
+        padding-bottom: 10px;
+    }
+
+    &__inputBox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+
+        textarea {
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+        label {
+            margin-bottom: 3px;
+            font-size: 18px;
+        }
+
+        input:focus {
+            outline: solid 2px rgba($color: #5353b6, $alpha: 0.75);
+        }
+
+        input::placeholder {
+            font-size: 14px;
+        }
+
+        input[type=text], #date-of-birth {
+            border: none;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            font-size: 18px;
+            padding: 6px 12px;
+        }
+
+        input[type=file] {
+            margin-top: 10px;
+        }
+    }
+
+    button {
+        border: none;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+        font-size: 18px;
+        padding: 10px 15px;
+        background-color: #5353b6;
+        transition: box-shadow 0.3s, background-color 0.3s;
+        margin-top: 20px;
+
+        &:hover {
+            box-shadow: 0 4px 35px rgba(0, 0, 0, 0.25);
+            background-color: #4949a0;
+        }
+    }
+}
+
+

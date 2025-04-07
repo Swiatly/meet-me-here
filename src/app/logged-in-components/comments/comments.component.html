@@ -1,0 +1,22 @@
+<div class="glass-box comments">
+    Liczba komentarzy: <span class="number">{{ commentsList.comments.length }}</span>
+</div>
+<div (click)="openModal()" class="white text pointer">Wyświetl komentarze</div>
+
+<div #modal class="modal">
+    <div class="modal-content">
+        <ng-container *ngIf="commentsList.comments && commentsList.comments.length > 0">
+            <ng-container *ngFor="let comment of commentsList.comments">
+                <div class="list-label">{{ comment.sender.firstName }} {{ comment.sender.lastName }}</div>
+                <div class="form-element">{{ comment.content }}</div>
+            </ng-container>
+        </ng-container>
+        <div class="add-com list-label">Dodaj komentarz:</div>
+        <input #comment placeholder="Napisz coś miłego!" class="form-element width-max top-margin" type="text">
+        <div class="buttons-box">
+            <button (click)="handleCommentAdd(comment.value)" class="add-post-button form-element white">Dodaj</button>
+            <button class="close-button form-element white pointer" (click)="closeModal()">Zamknij</button>
+        </div>
+    </div>
+</div>
+

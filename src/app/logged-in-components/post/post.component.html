@@ -1,0 +1,51 @@
+<div *ngIf="delete" (click)="deletePost()" class="delete-post">Usuń</div>
+<div class="post glass-box container">
+    <img *ngIf="photo && photo.length > 0" class="post__photo" [src]="photo">
+    <div class="post__authorAndDate">
+        <div class="post__authorAndDate--author"><span>{{ author }}</span></div>
+        <div class="post__authorAndDate--date">{{ date }}</div>
+    </div>
+
+    <p class="post__title white bold">{{ title }}</p>
+    <div class="white-line"></div>
+    <div class="post__description white">{{ description }}</div>
+    <div class="white-line"></div>
+    <div class="reaction-section">
+        <div class="box-flex">
+            <img (click)="addLike()" class="heart-icon" src="../../../assets/heart.png">
+            <div class="white">{{ amountOfLikes }}</div>
+        </div>
+        <div (click)="openModal()" class="box-flex">
+            <img class="heart-icon" src="../../../assets/comment.png">
+            <div class="white">{{ comments.length }}</div>
+        </div>
+    </div>
+</div>
+
+<div #modal class="modal">
+    <div class="modal-content">
+        <div class="bold margin-bottom">Komentarze:</div>
+        <ng-container *ngIf="comments.length === 0">
+            Brak komentarzy
+        </ng-container>
+        <ng-container *ngIf="comments.length > 0">
+            <ng-container *ngFor="let comment of comments">
+                <div class="margin-bottom form-element">
+                    <span class="bold">{{ comment.User.firstName }} 
+                        <span>{{ comment.User.lastName }}</span>: 
+                    </span>
+                    {{comment.content}}
+                </div>
+            </ng-container>
+        </ng-container>
+        <div class="separation"></div>
+        <div class="post-input">
+            <label class="comment" for="comment">Dodaj komentarz:</label>
+            <input #comment class="form-element" type="text" name="comment" id="comment" placeholder="Napisz coś miłego!">
+        </div>
+        <div class="buttons-box">
+            <button class="add-post-button form-element white" (click)="addComment(comment.value)">Dodaj</button>
+            <button class="close-button form-element white pointer" (click)="closeModal()">Zamknij</button>
+        </div>
+    </div>
+</div>

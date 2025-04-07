@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="layout">
+        <div class="profileInformation glass-box">
+            <div class="profileInformation__photo">
+                <img [src]="picture" alt="zdjęcie profilowe">
+            </div>
+            <div *ngIf="name" class="profileInformation__name white bold">
+                {{ name }}
+            </div>
+            <div class="white-line">
+            </div>
+            <ng-container>
+                <div class="profileInformation__data white">
+                    <p class="profileInformation__data--heading bold">O mnie:</p>
+                    <p class="profileInformation__data--text">{{ biogram }}</p>
+                </div>
+            </ng-container>
+            <ng-container>
+                <div class="profileInformation__data white">
+                    <p class="profileInformation__data--heading bold">🏠 Lokalizacja:</p>
+                    <p class="profileInformation__data--text">{{ location }}</p>
+                </div>
+            </ng-container>
+            <ng-container>
+                <div class="profileInformation__data white">
+                    <p class="profileInformation__data--heading bold">🎁 Data urodzin:</p>
+                    <p class="profileInformation__data--text">{{ birthday }}</p>
+                </div>
+            </ng-container>
+        </div>
+        <ng-container *ngIf="isOtherUser">
+            <ng-container *ngIf="!isFollowing">
+                <div class="follow-section">
+                    <div (click)="followUser()" class="follow-button">Zaobserwuj</div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="isFollowing">
+                <div class="follow-section">
+                    <div (click)="unfollowUser()" class="follow-button">
+                        <div [ngStyle]="{'text-align':'center'}">Cofnij</div>
+                        <div>obserwację</div>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+        <friends-list
+            [followers]="followers"
+            [following]="following">
+        </friends-list>
+        <div class="comment-section">
+            <app-comments [userId]="getProfileId()"></app-comments>
+        </div>
+    </div>
+    <div class="profilePosts">
+        <ng-container *ngFor="let post of userPosts">
+            <post
+            (getPosts)="getPostsAfterDelete()"
+            [title]="post.title"
+            [author]="name"
+            [date]="post.createdAt.split('T')[0]"
+            [description]="post.desc"
+            [photo]="'./../../../assets/' + post.photo"
+            [amountOfLikes]="post.likes"
+            [delete]="!isOtherUser"
+            [postID]="post.id">
+            </post>
+        </ng-container>
+    </div>
+</div>
